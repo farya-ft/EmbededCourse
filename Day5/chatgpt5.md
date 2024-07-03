@@ -3,7 +3,7 @@
 Templates allow you to create functions and classes that operate with generic types. This can make your code more flexible and reusable.
 
 >Function Template Example
-
+```cpp
 
     #include <iostream>
 
@@ -20,13 +20,14 @@ Templates allow you to create functions and classes that operate with generic ty
     
     return 0;
     }
+```    
 ***
 ##### Explanation:
 
 template < typename T >: Declares a template.
 T add(T a, T b) { ... }: Defines a function template that works with any type T.
 >Class Template Example
-
+```cpp
 
     #include < iostream >
 
@@ -50,6 +51,7 @@ T add(T a, T b) { ... }: Defines a function template that works with any type T.
         std::cout << "Double Box: " << doubleBox.getValue() << std::endl;
         return 0;
     }
+```
 ***
 ##### Explanation:
 
@@ -60,7 +62,7 @@ T getValue() const { ... }: Template member function.
 Exception handling allows you to manage errors and exceptional conditions in your program.
 
 >Exception Handling Example
-
+```cpp
     #include < iostream >
     #include < stdexcept >
 
@@ -80,6 +82,8 @@ Exception handling allows you to manage errors and exceptional conditions in you
         }
         return 0;
     }
+```
+
 ***
 ##### Explanation:
 
@@ -89,7 +93,7 @@ try { ... } catch (const std::invalid_argument &e) { ... }: Catches and handles 
 Multi-threading allows you to run multiple threads (smaller units of a process) concurrently. This is especially useful in embedded systems for handling tasks like sensor reading and data processing simultaneously.
 
 >Multi-threading Example Using std::thread
-
+```cpp
 
     #include <iostream>
     #include <thread>
@@ -110,6 +114,7 @@ Multi-threading allows you to run multiple threads (smaller units of a process) 
 
       return 0;
     }
+```    
 ***
 ##### Explanation:
 
@@ -120,7 +125,7 @@ In embedded systems, multi-threading can be used to manage concurrent tasks such
 
 >Embedded Example: Multi-threading (Pseudo-code)
 
-
+```cpp
     #include < iostream >
     #include < thread>
     #include < chrono>
@@ -160,6 +165,7 @@ In embedded systems, multi-threading can be used to manage concurrent tasks such
 
         return 0;
     }
+```    
 ***
 ##### Explanation:
 
@@ -178,7 +184,8 @@ std::thread sensorThread(&Sensor::readSensorData, &sensor);: Creates a thread th
 std::thread displayThread(&Display::updateDisplay, &display);: Creates a thread that runs updateDisplay on a Display object.
 sensorThread.join();: Waits for the sensor thread to finish.
 displayThread.join();: Waits for the display thread to finish.
->Daily Challenge:
+
+!!! Daily Challenge:
 1.Create a template function that finds the maximum of two values.
 2.Create a class Task with a pure virtual method execute. Derive two classes, PrintTask and ComputeTask, that implement the execute method. Use multi-threading to run instances of PrintTask and ComputeTask concurrently.
 3.Write exception handling for a scenario where a sensor fails to initialize.

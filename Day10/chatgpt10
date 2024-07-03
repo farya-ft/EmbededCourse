@@ -1,4 +1,4 @@
-1. Memory Management
+### 1. Memory Management
 Memory management is crucial in embedded systems due to limited resources. We'll cover dynamic memory allocation, fragmentation, and memory pools.
 
 Dynamic Memory Allocation
@@ -7,7 +7,7 @@ Dynamic memory allocation allows you to request memory at runtime using new and 
 
 Code: Dynamic Memory Allocation
 
-cpp
+```cpp
 Copy code
 #include <iostream>
 
@@ -28,6 +28,7 @@ int main() {
 
     return 0;
 }
+```
 Explanation:
 
 new int: Allocates an integer.
@@ -44,7 +45,7 @@ Memory pools (also known as fixed-size allocators) allocate memory blocks of fix
 
 Code: Simple Memory Pool (Concept)
 
-cpp
+```cpp
 Copy code
 #include <iostream>
 #include <vector>
@@ -85,7 +86,8 @@ int main() {
     pool.deallocate(block2);
     return 0;
 }
-Explanation:
+```
+##### Explanation:
 
 MemoryPool: Class that manages a pool of memory blocks.
 allocate: Allocates a memory block from the pool.

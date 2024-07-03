@@ -1,4 +1,4 @@
-Day 15: Real-Time Operating Systems (RTOS) in Embedded Systems
+### Day 15: Real-Time Operating Systems (RTOS) in Embedded Systems
 Today, we will explore Real-Time Operating Systems (RTOS), which are essential for managing tasks and ensuring deterministic behavior in embedded applications.
 
 1. Introduction to RTOS

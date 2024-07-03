@@ -4,7 +4,7 @@ Functions are reusable blocks of code that perform a specific task. They help in
 
 #### Basic Function Example
 
-
+```cpp
     #include < iostream >
 
     // Function declaration
@@ -20,6 +20,7 @@ Functions are reusable blocks of code that perform a specific task. They help in
     int add(int a, int b) {
         return a + b;
     }
+```    
 ***
 ##### Explanation:
 
@@ -29,7 +30,7 @@ sum = add(5, 3);: Calls the add function with arguments 5 and 3.
 #### Function Overloading
 
 >Function overloading allows you to define multiple functions with the same name but different parameter lists.
-
+```cpp
     #include < iostream >
 
     // Function overloading
@@ -48,6 +49,7 @@ sum = add(5, 3);: Calls the add function with arguments 5 and 3.
         std::cout << "Double Sum: " << doubleSum << std::endl;
         return 0;
     }
+```    
 ***
 ##### Explanation:
 
@@ -58,7 +60,7 @@ Polymorphism allows methods to do different things based on the object it is act
 
 >Code: Polymorphism Example
 
-
+```cpp
     #include < iostream >
     #include < string >
 
@@ -99,6 +101,7 @@ Polymorphism allows methods to do different things based on the object it is act
 
         return 0;
     }
+```    
 ***
 ##### Explanation:
 
@@ -109,7 +112,7 @@ makeAnimalSpeak(const Animal &animal) { ... }: Accepts an Animal reference and c
 In embedded systems, polymorphism can be used to handle different types of sensors or devices in a uniform way.
 
 >Embedded Example: Polymorphism (Pseudo-code)
-
+```cpp
 
     #include < iostream >
 
@@ -150,12 +153,14 @@ In embedded systems, polymorphism can be used to handle different types of senso
 
         return 0;
     }
+```    
 ***
 ##### Explanation:
 
 virtual void read() = 0;: Declares a pure virtual function in the base class Sensor.
 void read() override { ... }: Implements the read method in derived classes.
 readSensor(Sensor &sensor) { ... }: Accepts a Sensor reference and calls the read method, demonstrating polymorphism.
-Daily Challenge:
+
+!!! Daily Challenge:
 Create a Shape base class with a pure virtual method area. Derive two classes, Circle and Rectangle, that implement the area method.
 Write a program that creates instances of Circle and Rectangle, stores them in an array of Shape pointers, and prints their areas.

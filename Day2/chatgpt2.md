@@ -14,6 +14,7 @@ Basic Data Types:
     Code: Basic Variables
 
 ***
+```cpp
     #include <iostream>
 
     int main() {
@@ -31,7 +32,7 @@ Basic Data Types:
 
         return 0;
     }
-
+```
 ****
 #### Explanation:
 
@@ -42,7 +43,7 @@ Constructors are special member functions of a class that are executed whenever 
 
 #### Code: Class with Constructor
 
-
+```cpp
     #include <iostream>
     #include <string>
 
@@ -69,6 +70,7 @@ Constructors are special member functions of a class that are executed whenever 
 
         return 0;
     }
+```    
 ***
 #### Explanation:
 
@@ -80,7 +82,7 @@ In embedded systems, we often use variables to store sensor readings or to contr
 
 ### Embedded Example: LED Control (Pseudo-code)
 
-
+```cpp
     #include <iostream>
 
     // Pseudo-code for an embedded environment
@@ -115,12 +117,14 @@ In embedded systems, we often use variables to store sensor readings or to contr
 
         return 0;
     }
+```    
 ***
 #### Explanation:
 
 LED(int pin): Constructor initializes the pin.
 on() and off() methods control the LED.
 Note: pinMode, digitalWrite, and delay are typical functions in Arduino-like environments.
-Daily Challenge:
+
+!!! Daily Challenge:
 Create a Person class with name and age attributes. Include a constructor to initialize these attributes and a method to display them.
 Write a program that creates multiple Person objects and displays their details.

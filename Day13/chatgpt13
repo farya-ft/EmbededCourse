@@ -1,4 +1,4 @@
-Day 13: Advanced Topics - DMA and Power Management
+### Day 13: Advanced Topics - DMA and Power Management
 Today, we will cover two advanced topics in embedded systems: Direct Memory Access (DMA) and power management. These concepts are essential for optimizing performance and efficiency in embedded applications.
 
 1. Direct Memory Access (DMA)

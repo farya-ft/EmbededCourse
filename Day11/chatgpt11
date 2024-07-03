@@ -1,4 +1,4 @@
-Day 11: Interrupt Handling and Real-Time Constraints
+### Day 11: Interrupt Handling and Real-Time Constraints
 Today, we will delve into the crucial aspects of embedded systems: handling interrupts and meeting real-time constraints. These topics are fundamental for developing responsive and reliable embedded applications.
 
 1. Interrupt Handling

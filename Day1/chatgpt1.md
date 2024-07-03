@@ -2,7 +2,7 @@
 ## Day 1: Introduction to C++ and Basic Syntax
 
 Today, we'll start with the very basics of C++: understanding the syntax and writing your first program.
-
+```cpp
 >Code: Hello, World!
 
     #include <iostream>
@@ -11,6 +11,7 @@ Today, we'll start with the very basics of C++: understanding the syntax and wri
         std::cout << "Hello, World!" << std::endl;
         return 0;
     }
+```    
 ##### Explanation:
 
 #include <iostream>: Includes the Input/Output stream library.
@@ -22,7 +23,7 @@ In embedded systems, we typically don't have a console. Instead, we might write 
 
 #### OOP Concept: Classes and Objects
 > Code: Simple Class Example
-
+```cpp
 
     #include <iostream>
     #include <string>
@@ -39,17 +40,19 @@ In embedded systems, we typically don't have a console. Instead, we might write 
         hello.sayHello();
         return 0;
     }
+```    
 ##### Explanation:
 
 class HelloWorld { ... };: Defines a class named HelloWorld.
 void sayHello() { ... }: A public method that prints a message.
 HelloWorld hello;: Creates an object of the class HelloWorld.
 hello.sayHello();: Calls the sayHello method on the object.
-Daily Challenge:
+
+!!! Daily Challenge:
 Modify the HelloWorld class to accept a custom message and print it.
 Write a program that creates multiple HelloWorld objects, each with a different message.
 Embedded Systems Insight:
 In embedded systems, classes are often used to encapsulate hardware functionality. For example, you might have a class LED with methods to turn the LED on and off.
 
-Feel free to ask any questions or request further explanations on today's topics. Tomorrow, we'll dive into variables, data types, and more OOP concepts!
+
 

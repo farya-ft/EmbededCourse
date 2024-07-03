@@ -1,4 +1,4 @@
-Day 12: Peripheral Interfacing - GPIO, UART, I2C, and SPI
+### Day 12: Peripheral Interfacing - GPIO, UART, I2C, and SPI
 Today, we'll cover interfacing with various peripherals commonly used in embedded systems: General Purpose Input/Output (GPIO), Universal Asynchronous Receiver/Transmitter (UART), Inter-Integrated Circuit (I2C), and Serial Peripheral Interface (SPI).
 
 1. General Purpose Input/Output (GPIO)

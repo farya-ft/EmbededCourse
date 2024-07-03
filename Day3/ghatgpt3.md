@@ -3,7 +3,7 @@
 Control structures allow you to control the flow of your program based on conditions.
 
 > If-Else Statement
-
+```cpp
 
     #include <iostream>
 
@@ -20,6 +20,7 @@ Control structures allow you to control the flow of your program based on condit
 
         return 0;
     }
+```    
 ***
 ##### Explanation:
 
@@ -28,7 +29,7 @@ else if (x == 0) { ... }: Executes the block if the previous conditions are fals
 else { ... }: Executes the block if all previous conditions are false.
 > For Loop:
 
-
+```cpp
     #include <iostream>
 
     int main() {
@@ -38,13 +39,14 @@ else { ... }: Executes the block if all previous conditions are false.
 
         return 0;
     }
+```    
 ***
 ##### Explanation:
 
 for (int i = 0; i < 5; i++) { ... }: Repeats the block 5 times, with i ranging from 0 to 4.
 > While Loop
 
-
+```cpp
     #include < iostream >
 
     int main() {
@@ -57,6 +59,7 @@ for (int i = 0; i < 5; i++) { ... }: Repeats the block 5 times, with i ranging f
 
         return 0;
     }
+```    
 ***
 #### Explanation:
 
@@ -65,7 +68,7 @@ while (i < 5) { ... }: Repeats the block as long as the condition is true.
 Inheritance allows you to create new classes based on existing classes. This promotes code reuse and establishes a relationship between the base and derived classes.
 
 > Code: Inheritance Example
-
+```cpp
     #include < iostream >
     #include < string >
 
@@ -101,6 +104,7 @@ Inheritance allows you to create new classes based on existing classes. This pro
 
         return 0;
     }
+```    
 ***
 ##### Explanation:
 
@@ -112,7 +116,7 @@ In embedded systems, inheritance can be used to create specific drivers or handl
 
 > Embedded Example: Sensor Inheritance (Pseudo-code)
 
-
+```cpp
     #include <iostream>
 
     // Pseudo-code for an embedded environment
@@ -146,11 +150,13 @@ In embedded systems, inheritance can be used to create specific drivers or handl
 
         return 0;
     }
+```    
 ***
 #### Explanation:
 
 class Sensor { ... };: Abstract base class with a pure virtual function read.
 class TemperatureSensor : public Sensor { ... }; and class PressureSensor : public Sensor { ... };: Derived classes that implement the read method.
-Daily Challenge:
+
+!!! Daily Challenge:
 Create a Vehicle base class with make and model attributes and a method to display them. Derive a Car class that adds a numberOfDoors attribute and a method to display all details.
 Write a program that creates multiple Car objects and displays their details.

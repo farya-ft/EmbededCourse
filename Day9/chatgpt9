@@ -1,4 +1,4 @@
-Day 9: Advanced Multi-threading and Synchronization
+### Day 9: Advanced Multi-threading and Synchronization
 1. Advanced Multi-threading Techniques
 In this lesson, we will focus on more advanced multi-threading concepts, including atomic operations, thread-safe data structures, and thread synchronization using condition variables and barriers.
 
