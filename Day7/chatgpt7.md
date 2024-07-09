@@ -453,6 +453,6 @@ processSensorData: Function to read and process sensor data.
 pool.enqueue([i] { processSensorData(i); });: Enqueues sensor data processing tasks.
 
 !!! Daily Challenge:
-Create a SensorManager class that uses std::shared_ptr to manage multiple sensor objects.
-Implement a thread pool in the SensorManager to read and process data from multiple sensors concurrently.
-Add error handling to the SensorManager to manage sensor read errors.
+* Create a SensorManager class that uses std::shared_ptr to manage multiple sensor objects.
+* Implement a thread pool in the SensorManager to read and process data from multiple sensors concurrently.
+* Add error handling to the SensorManager to manage sensor read errors.
