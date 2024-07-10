@@ -1,17 +1,17 @@
 ### Day 14: Communication Protocols and Security in Embedded Systems
 Today, we will cover various communication protocols used in embedded systems and delve into security aspects that are crucial for ensuring the integrity and confidentiality of data.
 
-1. Communication Protocols
+#### 1. Communication Protocols
 Communication protocols facilitate data exchange between devices in an embedded system. We'll explore a few common protocols: CAN, MQTT, and Modbus.
 
-1.1. Controller Area Network (CAN)
+##### 1.1. Controller Area Network (CAN)
 
 CAN is a robust protocol used for real-time communication in automotive and industrial applications. It supports high-speed data exchange and error detection.
 
-Code: CAN Example (Pseudo-code for ARM Cortex-M)
+##### CAN Example (Pseudo-code for ARM Cortex-M)
 
-cpp
-Copy code
+```cpp
+
 #include "stm32f4xx.h"
 
 void initCAN() {
@@ -46,18 +46,19 @@ int main() {
         // Main loop
     }
 }
-Explanation:
+```
+##### Explanation:
 
 initCAN(): Initializes the CAN peripheral.
 canTransmit(uint32_t id, uint8_t* data, uint8_t length): Transmits a CAN message.
-1.2. Message Queuing Telemetry Transport (MQTT)
+#### 1.2. Message Queuing Telemetry Transport (MQTT)
 
 MQTT is a lightweight protocol designed for IoT applications, enabling communication between devices over TCP/IP.
 
-Code: MQTT Example (Using PubSubClient Library for ESP8266)
+##### MQTT Example (Using PubSubClient Library for ESP8266)
 
-cpp
-Copy code
+```cpp
+
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
@@ -113,19 +114,20 @@ void loop() {
     client.publish("test/topic", "Hello from ESP8266");
     delay(2000);
 }
-Explanation:
+```
+##### Explanation:
 
 setup(): Initializes WiFi and connects to the MQTT broker.
 callback(char* topic, byte* payload, unsigned int length): Handles incoming MQTT messages.
 loop(): Publishes a message to the MQTT topic.
-1.3. Modbus
+### 1.3. Modbus
 
 Modbus is a serial communication protocol used in industrial automation systems. It enables communication between devices over RS485, RS232, and TCP/IP.
 
-Code: Modbus RTU Example (Using ModbusMaster Library for Arduino)
+#### Modbus RTU Example (Using ModbusMaster Library for Arduino)
 
-cpp
-Copy code
+```cpp
+
 #include <ModbusMaster.h>
 
 #define MAX485_DE 3
@@ -168,21 +170,22 @@ void loop() {
     }
     delay(1000);
 }
-Explanation:
+```
+##### Explanation:
 
 setup(): Initializes the Modbus node and serial communication.
 loop(): Reads input registers and prints the data.
-2. Security in Embedded Systems
+## 2. Security in Embedded Systems
 Security is paramount in embedded systems to protect against unauthorized access, data breaches, and tampering.
 
-2.1. Secure Communication
+### 1. Secure Communication
 
 Use encryption protocols such as TLS/SSL for secure communication.
 
-Code: Secure Communication with MQTT (Using PubSubClient and WiFiClientSecure for ESP8266)
+##### Secure Communication with MQTT (Using PubSubClient and WiFiClientSecure for ESP8266)
 
-cpp
-Copy code
+```cpp
+
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 #include <PubSubClient.h>
@@ -239,17 +242,18 @@ void loop() {
     client.publish("test/secure_topic", "Hello from secure ESP8266");
     delay(2000);
 }
-Explanation:
+```
+##### Explanation:
 
 Uses WiFiClientSecure for secure communication over MQTT.
-2.2. Secure Boot
+### 2.2. Secure Boot
 
 Implement secure boot to ensure that only authenticated firmware is executed on the device.
 
 Pseudo-code: Secure Boot
 
-cpp
-Copy code
+```cpp
+
 #include "secure_boot.h"
 
 void verifyFirmware() {
@@ -271,17 +275,19 @@ int main() {
         // Main loop
     }
 }
-Explanation:
+```
+
+##### Explanation:
 
 verifyFirmware(): Verifies the firmware signature before executing it.
-2.3. Secure Storage
+ ### 2.3. Secure Storage
 
 Use secure storage to protect sensitive data such as encryption keys and credentials.
 
-Pseudo-code: Secure Storage
+##### Pseudo-code: Secure Storage
 
-cpp
-Copy code
+```cpp
+
 #include "secure_storage.h"
 
 void storeSecretData(const uint8_t* data, size_t length) {
@@ -316,12 +322,14 @@ int main() {
         // Main loop
     }
 }
-Explanation:
+```
+##### Explanation:
 
 storeSecretData(const uint8_t* data, size_t length): Encrypts and stores data.
 retrieveSecretData(uint8_t* data, size_t length): Reads and decrypts stored data.
-Daily Challenge:
-Implement secure communication using TLS/SSL in your embedded project.
-Implement a basic CAN communication between two devices.
-Implement a simple MQTT communication using secure protocols.
-Store and retrieve sensitive data securely in your embedded system.
+
+!!! Daily Challenge:
+* Implement secure communication using TLS/SSL in your embedded project.
+* Implement a basic CAN communication between two devices.
+* Implement a simple MQTT communication using secure protocols.
+* Store and retrieve sensitive data securely in your embedded system.

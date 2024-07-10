@@ -1,13 +1,13 @@
 ### Day 12: Peripheral Interfacing - GPIO, UART, I2C, and SPI
 Today, we'll cover interfacing with various peripherals commonly used in embedded systems: General Purpose Input/Output (GPIO), Universal Asynchronous Receiver/Transmitter (UART), Inter-Integrated Circuit (I2C), and Serial Peripheral Interface (SPI).
 
-1. General Purpose Input/Output (GPIO)
+##### 1. General Purpose Input/Output (GPIO)
 GPIO pins are used for digital input and output operations. They can read the state of a button or control an LED.
 
-Code: GPIO Example (Pseudo-code for ARM Cortex-M)
+##### GPIO Example (Pseudo-code for ARM Cortex-M)
 
-cpp
-Copy code
+```cpp
+
 #include "stm32f4xx.h"
 
 void initGPIO() {
@@ -34,7 +34,8 @@ int main() {
         }
     }
 }
-Explanation:
+```
+##### Explanation:
 
 initGPIO(): Initializes GPIOA, setting PA5 as output and PA0 as input.
 toggleLED(): Toggles the state of the LED connected to PA5.
@@ -42,10 +43,10 @@ readButton(): Reads the state of the button connected to PA0.
 2. Universal Asynchronous Receiver/Transmitter (UART)
 UART is used for serial communication between the microcontroller and peripherals such as PCs, sensors, and other microcontrollers.
 
-Code: UART Example (Pseudo-code for ARM Cortex-M)
+##### UART Example (Pseudo-code for ARM Cortex-M)
 
-cpp
-Copy code
+```cpp
+
 #include "stm32f4xx.h"
 
 void initUART() {
@@ -78,7 +79,8 @@ int main() {
         uartSendChar(received); // Echo received character
     }
 }
-Explanation:
+```
+##### Explanation:
 
 initUART(): Initializes USART2 for UART communication.
 uartSendChar(char c): Sends a character via UART.
@@ -86,10 +88,10 @@ uartReceiveChar(): Receives a character via UART.
 3. Inter-Integrated Circuit (I2C)
 I2C is used for communication between microcontrollers and low-speed peripherals such as sensors, EEPROMs, and other ICs.
 
-Code: I2C Example (Pseudo-code for ARM Cortex-M)
+##### I2C Example (Pseudo-code for ARM Cortex-M)
 
-cpp
-Copy code
+```cpp
+
 #include "stm32f4xx.h"
 
 void initI2C() {
@@ -130,17 +132,18 @@ int main() {
         for (int i = 0; i < 100000; ++i); // Simple delay
     }
 }
-Explanation:
+```
+##### Explanation:
 
 initI2C(): Initializes I2C1 for communication.
 i2cWrite(uint8_t address, uint8_t data): Writes data to a given I2C address.
 4. Serial Peripheral Interface (SPI)
 SPI is a synchronous serial communication interface used for short-distance communication, primarily in embedded systems.
 
-Code: SPI Example (Pseudo-code for ARM Cortex-M)
+##### SPI Example (Pseudo-code for ARM Cortex-M)
 
-cpp
-Copy code
+```cpp
+
 #include "stm32f4xx.h"
 
 void initSPI() {
@@ -176,13 +179,15 @@ int main() {
         for (int i = 0; i < 100000; ++i); // Simple delay
     }
 }
-Explanation:
+```
+##### Explanation:
 
 initSPI(): Initializes SPI1 for communication.
 spiWrite(uint8_t data): Writes data via SPI.
 spiRead(): Reads data via SPI.
-Daily Challenge:
-Implement a GPIO interrupt to handle a button press and toggle an LED.
-Set up UART communication between your microcontroller and a PC to send and receive data.
-Interface with an I2C temperature sensor and read its data.
-Communicate with an SPI flash memory to write and read data.
+
+!!! Daily Challenge:
+* Implement a GPIO interrupt to handle a button press and toggle an LED.
+* Set up UART communication between your microcontroller and a PC to send and receive data.
+* Interface with an I2C temperature sensor and read its data.
+* Communicate with an SPI flash memory to write and read data.

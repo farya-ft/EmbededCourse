@@ -1,14 +1,14 @@
 ### 1. Memory Management
 Memory management is crucial in embedded systems due to limited resources. We'll cover dynamic memory allocation, fragmentation, and memory pools.
 
-Dynamic Memory Allocation
+#### Dynamic Memory Allocation
 
 Dynamic memory allocation allows you to request memory at runtime using new and delete.
 
-Code: Dynamic Memory Allocation
+######  Dynamic Memory Allocation
 
 ```cpp
-Copy code
+
 #include <iostream>
 
 int main() {
@@ -29,7 +29,7 @@ int main() {
     return 0;
 }
 ```
-Explanation:
+##### Explanation:
 
 new int: Allocates an integer.
 delete ptr: Deallocates the integer.
@@ -43,10 +43,10 @@ Memory Pools
 
 Memory pools (also known as fixed-size allocators) allocate memory blocks of fixed sizes, reducing fragmentation and speeding up allocation and deallocation.
 
-Code: Simple Memory Pool (Concept)
+##### Simple Memory Pool (Concept)
 
 ```cpp
-Copy code
+
 #include <iostream>
 #include <vector>
 
@@ -101,8 +101,8 @@ Using const ensures that variables do not change unintentionally, improving code
 
 Code: Const Correctness
 
-cpp
-Copy code
+```cpp
+
 #include <iostream>
 
 void printValue(const int& value) {
@@ -114,6 +114,7 @@ int main() {
     printValue(num);
     return 0;
 }
+```
 Explanation:
 
 const int& value: Ensures that value cannot be modified within printValue.
@@ -121,10 +122,10 @@ Avoiding Global Variables
 
 Global variables can lead to unexpected behavior and are difficult to manage. Use local variables or encapsulate state within classes.
 
-Code: Avoiding Global Variables
+##### Avoiding Global Variables
 
-cpp
-Copy code
+```cpp
+
 #include <iostream>
 
 class Counter {
@@ -148,7 +149,8 @@ int main() {
     std::cout << "Count: " << counter.getCount() << std::endl;
     return 0;
 }
-Explanation:
+```
+##### Explanation:
 
 Counter: Encapsulates the state and behavior related to counting.
 Inlining Functions
@@ -157,8 +159,8 @@ Inlining small functions can improve performance by eliminating function call ov
 
 Code: Inlining Functions
 
-cpp
-Copy code
+```cpp
+
 #include <iostream>
 
 inline int square(int x) {
@@ -170,6 +172,7 @@ int main() {
     std::cout << "Square: " << square(num) << std::endl;
     return 0;
 }
+```
 Explanation:
 
 inline int square(int x): Suggests to the compiler to inline the function, replacing the call with the function body.
@@ -177,10 +180,10 @@ Optimizing Loops
 
 Minimize work inside loops and use efficient algorithms to reduce execution time.
 
-Code: Optimized Loop
+##### Optimized Loop
 
-cpp
-Copy code
+```cpp
+
 #include <iostream>
 #include <vector>
 
@@ -197,10 +200,12 @@ int main() {
     std::cout << "Sum: " << sum(numbers) << std::endl;
     return 0;
 }
-Explanation:
+```
+##### Explanation:
 
 for (const int& value : vec): Efficiently iterates over the vector, avoiding unnecessary copies.
-Daily Challenge:
-Implement a memory pool that supports objects of varying sizes.
-Refactor a piece of code to ensure const correctness.
-Identify and optimize any inefficient loops in your existing code.
+
+!!! Daily Challenge:
+* Implement a memory pool that supports objects of varying sizes.
+* Refactor a piece of code to ensure const correctness.
+* Identify and optimize any inefficient loops in your existing code.
