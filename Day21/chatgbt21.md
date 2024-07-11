@@ -1,18 +1,22 @@
-## Day 21: Communication Protocols in Embedded Systems
+Sure, let's continue with Day 21 of your embedded systems training.
+
+### Day 21: Communication Protocols in Embedded Systems
+
 Today, we'll explore communication protocols that are fundamental for enabling data exchange between embedded systems, peripherals, and external devices. Understanding these protocols is essential for building interconnected and efficient embedded applications.
 
-1. Importance of Communication Protocols
+#### 1. Importance of Communication Protocols
+
 Communication protocols facilitate data transmission and synchronization between various components in embedded systems, ensuring interoperability and reliability.
 
-2. Common Communication Protocols
-2.1. UART (Universal Asynchronous Receiver-Transmitter)
+#### 2. Common Communication Protocols
+
+**2.1. UART (Universal Asynchronous Receiver-Transmitter)**
 
 UART is a simple and widely used serial communication protocol for point-to-point communication between two devices. It uses two lines (TX and RX) for transmitting and receiving data.
 
-Example: UART Communication in Arduino
+**Example: UART Communication in Arduino**
 
-cpp
-Copy code
+```cpp
 void setup() {
     Serial.begin(9600); // Initialize serial communication
 }
@@ -26,14 +30,15 @@ void loop() {
     // Other tasks
     delay(100); // Delay for 100ms
 }
-2.2. I2C (Inter-Integrated Circuit)
+```
+
+**2.2. I2C (Inter-Integrated Circuit)**
 
 I2C is a multi-master, multi-slave serial communication protocol commonly used to interface sensors, EEPROMs, RTCs, and other peripheral devices. It requires only two wires (SDA for data and SCL for clock).
 
-Example: I2C Communication in Arduino
+**Example: I2C Communication in Arduino**
 
-cpp
-Copy code
+```cpp
 #include <Wire.h>
 
 void setup() {
@@ -47,14 +52,15 @@ void loop() {
 
     delay(1000); // Delay for 1 second
 }
-2.3. SPI (Serial Peripheral Interface)
+```
+
+**2.3. SPI (Serial Peripheral Interface)**
 
 SPI is a synchronous serial communication protocol typically used for high-speed communication between microcontrollers and peripheral devices (e.g., displays, SD cards). It uses separate lines for data (MISO, MOSI) and a shared clock line (SCK).
 
-Example: SPI Communication in Arduino
+**Example: SPI Communication in Arduino**
 
-cpp
-Copy code
+```cpp
 #include <SPI.h>
 
 void setup() {
@@ -68,15 +74,17 @@ void loop() {
 
     delay(1000); // Delay for 1 second
 }
-3. Wireless Communication Protocols
-3.1. WiFi (IEEE 802.11)
+```
+
+#### 3. Wireless Communication Protocols
+
+**3.1. WiFi (IEEE 802.11)**
 
 WiFi enables wireless network communication, allowing embedded devices to connect to local networks and the internet for data exchange.
 
-Example: WiFi Communication in ESP8266/ESP32
+**Example: WiFi Communication in ESP8266/ESP32**
 
-cpp
-Copy code
+```cpp
 #include <WiFi.h>
 
 const char* ssid = "YourSSID";
@@ -96,15 +104,19 @@ void setup() {
 void loop() {
     // WiFi communication tasks
 }
-3.2. Bluetooth
+```
+
+**3.2. Bluetooth**
 
 Bluetooth protocols (e.g., Bluetooth Low Energy - BLE) enable short-range wireless communication between embedded systems and mobile devices for IoT applications.
 
-4. Protocol Selection Considerations
+#### 4. Protocol Selection Considerations
+
 Choose communication protocols based on factors such as data rate requirements, distance, power consumption, and compatibility with existing hardware and software.
 
-Daily Challenge:
-Implement UART communication between two microcontrollers or between a microcontroller and a computer.
-Interface an I2C sensor with your embedded project and read sensor data.
-Experiment with SPI communication to exchange data with a peripheral device.
-Explore wireless communication protocols (e.g., WiFi, Bluetooth) and set up basic communication in your embedded system.
+#### Daily Challenge:
+1. Implement UART communication between two microcontrollers or between a microcontroller and a computer.
+2. Interface an I2C sensor with your embedded project and read sensor data.
+3. Experiment with SPI communication to exchange data with a peripheral device.
+4. Explore wireless communication protocols (e.g., WiFi, Bluetooth) and set up basic communication in your embedded system.
+

@@ -12,6 +12,7 @@ Functions are reusable blocks of code that perform a specific task. They help in
 
     int main() {
         int sum = add(5, 3);
+
         std::cout << "Sum: " << sum << std::endl;
         return 0;
     }

@@ -1,21 +1,24 @@
-## Day 25: Power Optimization Techniques in Embedded Systems
+### Day 25: Power Optimization Techniques in Embedded Systems
+
 Today, we'll focus on power optimization techniques that are essential for designing energy-efficient embedded systems, especially for battery-powered and remote IoT devices. We'll explore various hardware and software strategies to minimize power consumption.
 
-1. Importance of Power Optimization
+#### 1. Importance of Power Optimization
+
 Power optimization extends battery life, reduces heat generation, and ensures the reliability and longevity of embedded devices. This is crucial for applications such as wearable technology, remote sensors, and portable electronics.
 
-2. Low Power Modes in Microcontrollers
+#### 2. Low Power Modes in Microcontrollers
+
 Microcontrollers often provide multiple power modes to balance performance and power consumption.
 
-2.1. Common Power Modes
+**2.1. Common Power Modes**
 
-Active Mode: Full operation, maximum power consumption.
-Idle Mode: CPU is stopped, peripherals are active.
-Sleep Mode: Most peripherals and the CPU are stopped, lowest power consumption.
-Example: Using Low Power Modes on Arduino
+- **Active Mode:** Full operation, maximum power consumption.
+- **Idle Mode:** CPU is stopped, peripherals are active.
+- **Sleep Mode:** Most peripherals and the CPU are stopped, lowest power consumption.
 
-cpp
-Copy code
+**Example: Using Low Power Modes on Arduino**
+
+```cpp
 #include <avr/sleep.h>
 
 void setup() {
@@ -33,20 +36,22 @@ void loop() {
     Serial.println("Woke up!");
     delay(1000); // Simulate some work
 }
-Explanation:
+```
 
-set_sleep_mode(): Sets the sleep mode.
-sleep_enable() and sleep_mode(): Enable and enter the sleep mode.
-sleep_disable(): Disable sleep mode after waking up.
-3. Power Optimization Techniques
-3.1. Efficient Peripheral Management
+**Explanation:**
+- `set_sleep_mode()`: Sets the sleep mode.
+- `sleep_enable()` and `sleep_mode()`: Enable and enter the sleep mode.
+- `sleep_disable()`: Disable sleep mode after waking up.
+
+#### 3. Power Optimization Techniques
+
+**3.1. Efficient Peripheral Management**
 
 Only enable peripherals when needed and disable them when not in use to save power.
 
-Example: Managing Peripherals Efficiently
+**Example: Managing Peripherals Efficiently**
 
-cpp
-Copy code
+```cpp
 void setup() {
     Serial.begin(9600);
     pinMode(LED_BUILTIN, OUTPUT);
@@ -62,18 +67,19 @@ void loop() {
     digitalWrite(LED_BUILTIN, LOW); // Turn off LED
     delay(500); // Sleep
 }
-3.2. Dynamic Voltage and Frequency Scaling (DVFS)
+```
+
+**3.2. Dynamic Voltage and Frequency Scaling (DVFS)**
 
 Adjust the voltage and frequency based on the workload to reduce power consumption.
 
-3.3. Duty Cycling
+**3.3. Duty Cycling**
 
 Alternate between active and low-power states to save energy. This is particularly effective for sensor nodes that only need to transmit data periodically.
 
-Example: Duty Cycling for Sensor Nodes
+**Example: Duty Cycling for Sensor Nodes**
 
-cpp
-Copy code
+```cpp
 #include <LowPower.h>
 
 void setup() {
@@ -88,17 +94,18 @@ void loop() {
     // Enter low power mode
     LowPower.powerDown(SLEEP_1S, ADC_OFF, BOD_OFF);
 }
-Explanation:
+```
 
-LowPower.powerDown(): Puts the microcontroller into a power-down mode for a specified duration.
-3.4. Optimize Code Efficiency
+**Explanation:**
+- `LowPower.powerDown()`: Puts the microcontroller into a power-down mode for a specified duration.
+
+**3.4. Optimize Code Efficiency**
 
 Efficient code execution reduces the active time of the CPU, saving power. Optimize algorithms, minimize loops, and use interrupts wisely.
 
-Example: Using Interrupts Instead of Polling
+**Example: Using Interrupts Instead of Polling**
 
-cpp
-Copy code
+```cpp
 const int buttonPin = 2;
 volatile bool buttonPressed = false;
 
@@ -120,23 +127,28 @@ void loop() {
 void handleInterrupt() {
     buttonPressed = true;
 }
-Explanation:
+```
 
-attachInterrupt(): Configures an interrupt to handle button presses, reducing the need for constant polling.
-3.5. Use Low-Power Components
+**Explanation:**
+- `attachInterrupt()`: Configures an interrupt to handle button presses, reducing the need for constant polling.
+
+**3.5. Use Low-Power Components**
 
 Choose components with low power consumption and optimize their usage.
 
-4. Power Measurement and Profiling
+#### 4. Power Measurement and Profiling
+
 Measure and profile power consumption to identify areas for optimization.
 
-Example: Power Profiling with a Multimeter
+**Example: Power Profiling with a Multimeter**
 
-Measure current consumption in different modes (active, idle, sleep).
-Identify high-power consumption routines and optimize them.
-Daily Challenge:
-Implement a low-power mode in your embedded project and measure the power savings.
-Use efficient peripheral management to reduce power consumption.
-Implement duty cycling in a sensor node application.
-Optimize your code to minimize CPU active time and use interrupts where appropriate.
-Measure the power consumption of your project using a multimeter and identify areas for further optimization.
+- Measure current consumption in different modes (active, idle, sleep).
+- Identify high-power consumption routines and optimize them.
+
+#### Daily Challenge:
+1. Implement a low-power mode in your embedded project and measure the power savings.
+2. Use efficient peripheral management to reduce power consumption.
+3. Implement duty cycling in a sensor node application.
+4. Optimize your code to minimize CPU active time and use interrupts where appropriate.
+5. Measure the power consumption of your project using a multimeter and identify areas for further optimization.
+

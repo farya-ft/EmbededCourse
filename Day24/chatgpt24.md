@@ -1,22 +1,24 @@
-## Day 24: Firmware Updates and Over-the-Air (OTA) Updates in Embedded Systems
+### Day 24: Firmware Updates and Over-the-Air (OTA) Updates in Embedded Systems
+
 Today, we will explore the concepts and implementation strategies for firmware updates, including over-the-air (OTA) updates, which are essential for maintaining and improving embedded systems after deployment.
 
-1. Importance of Firmware Updates
-Firmware updates allow for:
+#### 1. Importance of Firmware Updates
 
-Bug Fixes: Addressing software bugs and vulnerabilities.
-Feature Enhancements: Adding new functionalities to the system.
-Security Patches: Updating security mechanisms to protect against new threats.
-Performance Improvements: Optimizing existing code for better performance.
-2. Firmware Update Methods
-2.1. Wired Updates
+Firmware updates allow for:
+- **Bug Fixes:** Addressing software bugs and vulnerabilities.
+- **Feature Enhancements:** Adding new functionalities to the system.
+- **Security Patches:** Updating security mechanisms to protect against new threats.
+- **Performance Improvements:** Optimizing existing code for better performance.
+
+#### 2. Firmware Update Methods
+
+**2.1. Wired Updates**
 
 Involves physically connecting the embedded system to a computer using interfaces like UART, USB, or JTAG.
 
-Example: Firmware Update via Serial
+**Example: Firmware Update via Serial**
 
-cpp
-Copy code
+```cpp
 void setup() {
     Serial.begin(9600);
     Serial.println("Ready to receive firmware update...");
@@ -30,18 +32,19 @@ void loop() {
         // Update firmware logic
     }
 }
-2.2. Over-the-Air (OTA) Updates
+```
+
+**2.2. Over-the-Air (OTA) Updates**
 
 OTA updates allow firmware updates to be delivered wirelessly, typically using WiFi, Bluetooth, or cellular connections. This method is particularly useful for IoT devices deployed in remote or inaccessible locations.
 
-Example: OTA Updates with ESP8266/ESP32
+**Example: OTA Updates with ESP8266/ESP32**
 
 Using the Arduino IDE, we can easily implement OTA updates for ESP8266/ESP32.
 
-2.2.1. OTA Library Setup
+**2.2.1. OTA Library Setup**
 
-cpp
-Copy code
+```cpp
 #include <WiFi.h>
 #include <ArduinoOTA.h>
 
@@ -101,19 +104,21 @@ void setup() {
 void loop() {
     ArduinoOTA.handle(); // Handle OTA update requests
 }
-Explanation:
+```
 
-ArduinoOTA.begin(): Initializes the OTA service.
-ArduinoOTA.handle(): Regularly called in the loop to check for OTA update requests.
-3. Best Practices for Firmware Updates
-3.1. Secure Updates
+**Explanation:**
+- `ArduinoOTA.begin()`: Initializes the OTA service.
+- `ArduinoOTA.handle()`: Regularly called in the loop to check for OTA update requests.
+
+#### 3. Best Practices for Firmware Updates
+
+**3.1. Secure Updates**
 
 Ensure the update process is secure to prevent unauthorized modifications. Use cryptographic methods to authenticate and encrypt firmware updates.
 
-Example: Secure OTA Update
+**Example: Secure OTA Update**
 
-cpp
-Copy code
+```cpp
 #include <WiFi.h>
 #include <ArduinoOTA.h>
 #include <Update.h>
@@ -126,14 +131,15 @@ void setup() {
 void loop() {
     ArduinoOTA.handle();
 }
-3.2. Reliable Updates
+```
+
+**3.2. Reliable Updates**
 
 Implement mechanisms to ensure that the firmware update process is reliable and can recover from interruptions (e.g., power loss during the update).
 
-Example: Update Validation
+**Example: Update Validation**
 
-cpp
-Copy code
+```cpp
 void setup() {
     // Check if the last update was successful
     if (!Update.hasError()) {
@@ -149,12 +155,15 @@ void setup() {
 void loop() {
     ArduinoOTA.handle();
 }
-3.3. Version Control
+```
+
+**3.3. Version Control**
 
 Maintain version control for firmware to manage updates effectively and ensure compatibility.
 
-Daily Challenge:
-Implement a basic wired firmware update mechanism for your embedded project.
-Set up OTA updates for an ESP8266/ESP32 or a similar device and perform a test update.
-Enhance your OTA update implementation with security features like password protection and encrypted firmware.
-Implement a mechanism to validate firmware updates and handle failures gracefully.
+#### Daily Challenge:
+1. Implement a basic wired firmware update mechanism for your embedded project.
+2. Set up OTA updates for an ESP8266/ESP32 or a similar device and perform a test update.
+3. Enhance your OTA update implementation with security features like password protection and encrypted firmware.
+4. Implement a mechanism to validate firmware updates and handle failures gracefully.
+
