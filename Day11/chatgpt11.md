@@ -196,20 +196,27 @@ Ensuring that tasks run at precise intervals is critical. Jitter, the variabilit
 #include <task.h>
 
 void vPeriodicTask(void *pvParameters) {
+    // زمان بیداری اولیه تسک را دریافت می‌کنیم
     TickType_t xLastWakeTime = xTaskGetTickCount();
+    // فرکانس تسک به واحد tick (هر tick معادل یک میلی‌ثانیه است)
     const TickType_t xFrequency = pdMS_TO_TICKS(100);
 
     while (1) {
         // Task actions
+            // اقدامات تسک
+        // در اینجا می‌توان کدی را قرار داد که تسک باید انجام دهد
+
+        // تسک را تا زمانی که از آخرین بیداری آن می‌گذرد متوقف می‌کند
         vTaskDelayUntil(&xLastWakeTime, xFrequency);
     }
 }
 
 int main() {
+    // ایجاد تسک دوره‌ای
     xTaskCreate(vPeriodicTask, "Periodic Task", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
-
+  // شروع برنامه‌ریزی تسک‌ها
     vTaskStartScheduler();
-
+// یک حلقه بی‌نهایت برای اطمینان از اینکه برنامه هرگز خاتمه نمی‌یابد
     for (;;);
     return 0;
 }
@@ -229,6 +236,8 @@ vTaskDelayUntil(&xLastWakeTime, xFrequency) is used to delay the task until the 
 
 #### What is Jitter?
 Jitter is the variation in time between the actual execution of a task and its expected or scheduled execution time. It is essentially the "noise" in timing, where a task might not run exactly at its scheduled interval due to various delays in the system.
+#### jitter:
+ (ژیتتر) در سیستم‌های بلادرنگ به تغییرات یا نوسانات در زمان‌بندی اجرای تسک‌ها یا رخدادها اشاره دارد. به عبارت دیگر، ژیتتر میزان انحراف زمانی از زمان‌بندی پیش‌بینی‌شده است. اگر یک تسک به طور منظم هر 100 میلی‌ثانیه اجرا شود، ژیتتر تفاوت زمانی بین زمان‌های واقعی اجرا و زمان‌های مورد انتظار است. در سیستم‌های بلادرنگ، کاهش ژیتتر به منظور بهبود دقت و پیش‌بینی‌پذیری اجرای تسک‌ها بسیار مهم است.
 
 ##### Sources of Jitter:
 
@@ -257,21 +266,35 @@ In embedded systems, meeting real-time constraints often involves:
 * Using hardware timers to trigger tasks.
 * Prioritizing interrupts and tasks.
 * Optimizing critical sections to reduce latency.
+
+در سیستم‌های تعبیه‌شده، برای رعایت محدودیت‌های بلادرنگ معمولاً از روش‌های زیر استفاده می‌شود:
+
+1. **استفاده از تایمرهای سخت‌افزاری برای فعال‌سازی تسک‌ها**:
+   تایمرهای سخت‌افزاری برای اجرای دقیق تسک‌ها در زمان‌های مشخص به کار می‌روند.
+
+2. **اولویت‌بندی وقفه‌ها و تسک‌ها**:
+   تسک‌ها و وقفه‌ها بر اساس اهمیت و ضرورتشان اولویت‌بندی می‌شوند تا تسک‌های مهم‌تر زودتر اجرا شوند.
+
+3. **بهینه‌سازی بخش‌های بحرانی برای کاهش تاخیر**:
+   کدهایی که نمی‌توانند متوقف شوند (بخش‌های بحرانی) بهینه‌سازی می‌شوند تا زمان اجرای آن‌ها کاهش یابد و تاخیر سیستم کمتر شود.
 ##### Real-Time Constraints with Timer (Pseudo-code for ARM Cortex-M)
 
+این کد به منظور ایجاد یک سیستم بلادرنگ ساده با استفاده از یک تایمر در میکروکنترلر 
+STM32F4
+نوشته شده است.
 ```cpp
 
 #include "stm32f4xx.h"
 
 void TIM2_IRQHandler(void) {
-    if (TIM2->SR & TIM_SR_UIF) { // Check if update interrupt flag is set
-        TIM2->SR &= ~TIM_SR_UIF; // Clear the update interrupt flag
-        GPIOA->ODR ^= GPIO_ODR_OD5; // Toggle LED connected to PA5
+    if (TIM2->SR & TIM_SR_UIF) { // بررسی اگر پرچم وقفه به‌روزرسانی تنظیم شده باشد
+        TIM2->SR &= ~TIM_SR_UIF;  // پاک کردن پرچم وقفه به‌روزرسانی
+        GPIOA->ODR ^= GPIO_ODR_OD5; // تغییر وضعیت LED متصل به PA5
     }
 }
 
 int main() {
-    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN; // Enable GPIOA clock
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN; // فعال کردن کلاک GPIOA
     GPIOA->MODER |= GPIO_MODER_MODER5_0; // Set PA5 as output
 
     RCC->APB1ENR |= RCC_APB1ENR_TIM2EN; // Enable Timer2 clock
@@ -290,6 +313,28 @@ int main() {
 ##### Explanation:
 
 Timer2 generates periodic interrupts to toggle an LED, ensuring precise timing.
+
+##### توضیح عملکرد:
+این کد باعث می‌شود که 
+LED
+ متصل به پین 
+ PA5
+  هر بار که تایمر 2
+   به مقدار تنظیم‌شده در 
+   auto-reload register برسد (که معادل تقریباً 1
+    ثانیه است) تغییر وضعیت دهد (روشن یا خاموش شود). تایمر 2 با استفاده از 
+    prescaler
+     و auto-reload register تنظیم می‌شود تا در هر 1
+      ثانیه یک بار وقفه فعال شود و 
+      LED
+       را تغییر وضعیت دهد.
+
+
+
+
+
+
+
 
 !!! Daily Challenge:
 * Implement an ISR to handle a button press interrupt and toggle an LED.
