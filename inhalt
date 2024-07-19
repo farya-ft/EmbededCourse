@@ -1,12 +1,12 @@
- Day 1: Introduction to C++ and Basic Syntax
- Day 2: Variables, Data Types, and Constructors
- Day 3: Control Structures and Inheritance
- Day 4: Functions and Polymorphism
- Day 5: Templates, Exception Handling, and Multi-threading
- Day 6: STL Containers and File I/O
- Day 7: Smart Pointers and Advanced Multi-threading
- Day 8: Custom Allocators, Advanced Template Programming, and RTOS
- Day 9: Advanced Multi-threading and Synchronization
+ Day 1:  Introduction to C++ and Basic Syntax
+ Day 2:  Variables, Data Types, and Constructors
+ Day 3:  Control Structures and Inheritance
+ Day 4:  Functions and Polymorphism
+ Day 5:  Templates, Exception Handling, and Multi-threading
+ Day 6:  STL Containers and File I/O
+ Day 7:  Smart Pointers and Advanced Multi-threading
+ Day 8:  Custom Allocators, Advanced Template Programming, and RTOS
+ Day 9:  Advanced Multi-threading and Synchronization
  Day 10: Memory Management and Efficient Coding Practices
  Day 11: Interrupt Handling and Real-Time Constraints
  Day 12: Peripheral Interfacing - GPIO, UART, I2C, and SPI
@@ -27,6 +27,9 @@
  Day 27: Data Logging and Storage Solutions for Embedded Systems
  Day 28: Communication Protocols for Embedded Systems (I2C, SPI, UART)
  Day 29: Wireless Communication Protocols for Embedded Systems (Bluetooth, Wi-Fi, LoRa)
- Day 30:Power Management Techniques for Embedded Systems
- Day 31:Advanced Debugging Techniques for Embedded Systems
- Day 32:Code styling in embedded C++ programming
+ Day 30: Power Management Techniques for Embedded Systems
+ Day 31: Advanced Debugging Techniques for Embedded Systems
+ Day 32: Code styling in embedded C++ programming
+ Day 33: Timers and whatchDog
+ Day 34: counter and PWM
+ Day 35: ADC &DAC

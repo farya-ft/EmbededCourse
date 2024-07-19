@@ -1,4 +1,4 @@
-Sure, let's continue with Day 21 of your embedded systems training.
+
 
 ### Day 21: Communication Protocols in Embedded Systems
 

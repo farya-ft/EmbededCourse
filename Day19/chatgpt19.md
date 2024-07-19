@@ -1,5 +1,3 @@
-Certainly! Let's continue with Day 19 of your embedded systems training.
-
 ### Day 19: Power Management Techniques in Embedded Systems
 
 Today, we'll focus on power management techniques for embedded systems. Efficient power management is crucial for extending battery life, reducing heat dissipation, and optimizing overall system performance.

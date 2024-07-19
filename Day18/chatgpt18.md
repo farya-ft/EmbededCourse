@@ -1,5 +1,3 @@
-Certainly! Let's move on to Day 18 of your embedded systems training.
-
 ### Day 18: Handling Real-Time Events and Interrupts in Embedded Systems
 
 Today, we'll delve into the concepts of handling real-time events and interrupts in embedded systems. Efficiently managing interrupts is crucial for timely response to external events and ensuring deterministic behavior in real-time applications.
