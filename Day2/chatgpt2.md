@@ -91,7 +91,7 @@ In embedded systems, we often use variables to store sensor readings or to contr
         LED(int pin) {
             // Initialize the pin
             this->pin = pin;
-            pinMode(pin, OUTPUT);
+            pinMode(pin, OUTPUT);//This sets the pin to output mode, meaning it can be used to send a voltage signal to control an LED or other devices.
         }
 
         void on() {
