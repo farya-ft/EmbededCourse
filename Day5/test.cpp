@@ -16,7 +16,7 @@ using namespace std;
 
  };
  int main(){
-    Max ob(3,2);
+    Max ob(3,2); //Max<int> ob(3,2);
     cout<< ob.find() <<endl;
     return 0;
  }

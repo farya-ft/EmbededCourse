@@ -61,6 +61,10 @@ int main()
     thread computeThread(runTask, &computeTask);
 
     // Wait for both threads to finish
+    //با استفاده از 
+    //join()،
+    // برنامه منتظر می‌ماند تا هر دو ریسمان کارشان را به اتمام برسانند،
+    // سپس برنامه به پایان می‌رسد.
     printThread.join();
     computeThread.join();
 
@@ -74,4 +78,33 @@ int main()
         thread printThread(&Task::execute, &printTask);
         thread computeThread(&Task::execute, &computeTask);
 
+   */
+
+  /*
+  اگر تابع 
+  runTask
+   را تعریف نکنید و به جای آن به طور مستقیم متد 
+  execute
+   را از طریق شیء 
+  Task
+   فراخوانی کنید،
+   
+   int main()
+{
+    PrintTask printTask;
+    ComputeTask computeTask;
+
+    // ایجاد رشته‌های جدید و اجرای مستقیم متدهای عضو از کلاس‌های مشتق شده
+    thread printThread(&Task::execute, &printTask);
+    thread computeThread(&Task::execute, &computeTask);
+
+    // منتظر ماندن برای اتمام کار هر دو رشته
+    printThread.join();
+    computeThread.join();
+
+    return 0;
+}
+
+   
+   
    */
