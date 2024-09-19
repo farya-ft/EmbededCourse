@@ -64,7 +64,9 @@
 2. `gh repo create`  
    **توضیح:** یک مخزن جدید در گیت‌هاب ایجاد می‌کند.
 
-3. `gh repo clone <repository>`  
+3. `git clone <repository-url>`
+`git clone https://github.com/username/repository.git`
+   
    **توضیح:** یک مخزن گیت‌هاب را کلون می‌کند.
 
 4. `gh repo fork <repository>`  
